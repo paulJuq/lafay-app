@@ -1,0 +1,96 @@
+const workout = {
+
+	workoutInfos: {
+		id: '3',
+		title : "Niveau 2",
+		rounds:  '14', 
+		totalExercices: 7, 
+	}, 
+
+	exercices: {
+		0 : {
+			exercice: 'B1', 
+			restingTimeBetweenRounds: 25, 
+			restingTimeBeforeNextExercice: 25, 
+			reps: 'Reps x5 Ryhtme Rapide', 
+			img1: 'A1-main.png', 
+			img2: 'A1-secondary.png', 
+			maxReps: 0, 
+			round: 6, 
+		},
+		1 : {
+			exercice: 'A3', 
+			restingTimeBetweenRounds: 25, 
+			restingTimeBeforeNextExercice: 25, 
+			reps: 'Reps x5 Ryhtme Rapide', 
+			img1: 'A1-main.png', 
+			img2: 'A1-secondary.png', 
+			maxReps: 0, 
+			round: 6, 
+		},
+		
+		2 : {
+			exercice: 'A2', 
+			restingTimeBetweenRounds: 25, 
+			restingTimeBeforeNextExercice: 180, 
+			reps: 'Reps x5 Ryhtme Rapide', 
+			img1: 'C1-main.png', 
+			img2: 'C1-secondary.png', 
+			maxReps: 0, 
+			round: 6, 
+		},
+
+		3 : {
+			exercice: 'C1', 
+			restingTimeBetweenRounds: 25, 
+			restingTimeBeforeNextExercice: 180, 
+			reps: 'Reps x5 Ryhtme Rapide', 
+			img1: 'C1-main.png', 
+			img2: 'C1-secondary.png', 
+			maxReps: 0, 
+			round: 6, 
+		},
+		4 : {
+			exercice: 'E', 
+			restingTimeBetweenRounds: 25, 
+			restingTimeBeforeNextExercice: 180, 
+			reps: 'Reps x5 Ryhtme Rapide', 
+			img1: 'F-main.png', 
+			img2: 'F-secondary.png', 
+			maxReps: 0, 
+			round: 6, 
+		},
+		5 : {
+			exercice: 'F', 
+			restingTimeBetweenRounds: 25, 
+			restingTimeBeforeNextExercice: 180, 
+			reps: 'Reps x10 ', 
+			img1: 'G-main.png', 
+			img2: 'G-secondary.png', 
+			maxReps: 0, 
+			round: 4, 
+		},
+		6 : {
+			exercice: 'G', 
+			restingTimeBetweenRounds: 25, 
+			restingTimeBeforeNextExercice: 60, 
+			reps: 'Reps x1', 
+			img1: 'K2-main.png', 
+			img2: 'K2-secondary.png', 
+			maxReps: 0, 
+			round: 6, 
+		},
+		7 : {
+			exercice: 'K2', 
+			restingTimeBetweenRounds: 60, 
+			restingTimeBeforeNextExercice: 60, 
+			reps: 'Reps x12 à la bonne hauteur', 
+			img1: 'K2-main.png', 
+			img2: 'K2-secondary.png', 
+			maxReps: 0, 
+			round: 3, 
+		},
+	},
+}
+
+export default workout; 
