@@ -34,19 +34,19 @@ class App extends React.Component {
 						</Route>
 
 						<Route path='/workout/niveau-1-premier-programme'>
-					    	<WorkoutManager workout={Niveau1Programme1}/>
+					    	<WorkoutManager workout={Niveau1Programme1} />
 						</Route>
 
 						<Route path='/workout/niveau-1-deuxieme-programme'>
-					    	<WorkoutManager workout={Niveau1Programme2}/>
+					    	<WorkoutManager workout={Niveau1Programme2} />
 						</Route>
 
 						<Route path='/workout/niveau-2'>
-					    	<WorkoutManager workout={Niveau2}/>
+					    	<WorkoutManager workout={Niveau2} />
 						</Route>
 
 						<Route path='/workout'>
-							<Home />
+							<Home  />
 						</Route>
 					</Switch>
 				</React.Fragment>

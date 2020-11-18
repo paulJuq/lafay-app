@@ -47,7 +47,6 @@ export default class Home extends React.Component{
 		this.renderWorkout = this.renderWorkout.bind(this)
 	}
 
-
 	renderWorkout(){
 
 		console.log('render')

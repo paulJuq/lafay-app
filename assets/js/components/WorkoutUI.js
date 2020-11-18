@@ -74,7 +74,7 @@ export default class WorkoutUI extends React.Component{
 
 				<div style={styles.nbReps}>{workout.instructions}</div>
 
-				<div style={styles.previousMaxReps}>{`Score à battre : ${workout.previousSessionScore}`}</div>
+				<div style={styles.previousMaxReps}>{`Score à battre : ${workout.sessionScore}`}</div>
 
 
 				<ButtonNext click={this.props.setRestState}/>

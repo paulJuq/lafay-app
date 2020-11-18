@@ -1,4 +1,10 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 const styles = {
@@ -59,13 +65,22 @@ const styles = {
 		justifyContent: 'center', 
 
 		button: {
-			padding: '8px', 
+			height:"48px",
 			width: '90%', 
 			background: '#423F55', 		
 			marginBottom: '8px', 
 			borderRadius: '3px',
 			boxShadow:' 0px 1px 1px rgba(0, 0, 0, 0.25)',
 			cursor: 'pointer', 
+		},
+
+		link: {
+			color: "white",
+			width: "100%",
+			display: "flex",
+			height: "100%",
+			justifyContent: "center",
+			alignItems: "center",
 		}
 	}
 
@@ -77,6 +92,10 @@ const styles = {
 
 
 export default class ResumeUI extends React.Component{
+	constructor(props){
+		super(props)
+		this.postSession = this.postSession.bind(this)
+	}
 
 	totalTimeCalculator(time){
 
@@ -85,6 +104,30 @@ export default class ResumeUI extends React.Component{
 		let seconds = time - (minutes * 60) ; 
 
 		return `${minutes}'${seconds}''`
+	}
+
+
+	postSession(){
+
+		let workout = []; 
+
+		for(const i in this.props.workout.exercices){
+			workout.push(this.props.workout.exercices[i])
+		}
+		const session = {
+ 			"level": this.props.workout.workoutInfos.id,
+  			"duration": this.props.workoutTotalTime,
+  			"workout": workout,
+  			"createdAt": new Date(),
+  			"user" : "/api/users/1", 
+		}
+
+		const request = new XMLHttpRequest()
+		request.open("POST", "https://localhost:8000/api/workout_sessions");
+		request.setRequestHeader("Content-Type", "application/json");
+		request.send(JSON.stringify(session));
+
+		console.log(request)
 	}
 
 
@@ -142,8 +185,8 @@ export default class ResumeUI extends React.Component{
 				</div>
 
 				<div style={styles.buttonContainer}>
-					<div style={styles.buttonContainer.button}>
-						Terminé
+					<div style={styles.buttonContainer.button} onClick={this.postSession}>
+						<Link style={styles.buttonContainer.link} to='/workout'>Terminé</Link>
 					</div>
 				</div>
 

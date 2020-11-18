@@ -5,6 +5,8 @@ import RestUI from './RestUI'
 import ResumeUI from './ResumeUI'
 import Stopwatch from './Stopwatch'
 
+import LevelBuilder from '../levels/LevelBuilder'; 
+
 const styles = {
 	navigation: {
 		display: 'flex',
@@ -34,9 +36,10 @@ export default class WorkoutManager extends React.Component{
 
 		this.state = {
 			stopwatch: 0, 
-			workout: this.props.workout, 
 			currentState: 'preview', 
 			currentRound: 0, //round de la série en cours
+			error: null, 
+			isLoaded: false, 
 		}
 
 		this.incrementReps = this.incrementReps.bind(this)
@@ -46,6 +49,28 @@ export default class WorkoutManager extends React.Component{
 		this.startWorkout = this.startWorkout.bind(this)
 		this.nextExercice = this.nextExercice.bind(this)
 		this.setRestState = this.setRestState.bind(this)
+	}
+
+	componentDidMount(){
+		fetch("https://127.0.0.1:8000/api/users/1")
+		.then(res => res.json())
+		.then(
+			(result) => {
+
+				const workout = new LevelBuilder(result.workoutSessions, this.props.workout).getLastSession(); 
+
+				this.setState({
+					isLoaded: true, 
+					workout: workout,
+				});
+			}, 
+			(error) => {
+				this.setState({
+					isLoaded: true, 
+					error: error,
+				});
+			}
+		)
 	}
 
 
@@ -120,7 +145,7 @@ export default class WorkoutManager extends React.Component{
 		if(this.state.currentState === 'preview') {
 			return (
 				<PreviewUI 
-					workout={this.props.workout}
+					workout={this.state.workout}
 					startWorkout={this.startWorkout}
 				/>
 
@@ -130,7 +155,7 @@ export default class WorkoutManager extends React.Component{
 
 	renderWorkoutUI(){
 
-		const workout = this.props.workout.exercices[this.state.currentRound]
+		const workout = this.state.workout.exercices[this.state.currentRound]
 		
 		if (this.state.currentState === 'workout'){	
 			return (
@@ -173,7 +198,9 @@ export default class WorkoutManager extends React.Component{
 	}
 
 	render(){
-
+		if(!this.state.isLoaded){
+			return null; 
+		}
 		return (
 			<React.Fragment>
 

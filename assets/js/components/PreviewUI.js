@@ -53,6 +53,10 @@ const styles = {
 }
 
 export default class PreviewUI extends React.Component {
+
+	componentDidMount(){
+		console.log("Le composant est monté")
+	}
 	render(){
 
 		let liste = []; 
