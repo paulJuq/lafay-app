@@ -10,6 +10,10 @@ const workout = {
 		title : "Test d'effort maximum",
 		rounds:  '4', 
 		totalExercices: 4, 
+		infos: `Testez vos capacités. Il s’agit pour vous de connaître vos performances réalisées à pleine amplitude sur les exercices suivants.`,
+		exercicesList: [A, B, C, A1],
+		frequency: `Ce test d’effort est à réaliser une fois unique pour dévérouiller son premier niveau d’entrainement.`, 
+		objectives: `Selon vos résultats, l’accès à votre premier niveau d’entraînement sera débloqué.`, 
 	}, 
 
 	exercices: {
@@ -49,5 +53,35 @@ const workout = {
 		},
 	}, 
 }
+
+workout.workoutInfos.equipment = getEquipment(workout.workoutInfos.exercicesList); 
+console.log(workout.workoutInfos.equipment);
+
+function getEquipment(exercicesSet){
+
+	console.log(exercicesSet); 
+
+	const equipments = []; 
+
+	for(const i in exercicesSet){
+
+		const exerice = exercicesSet[i]; 
+		console.log(exerice); 
+
+		for(const i in exerice.equipment){
+
+			const equipment = exerice.equipment[i];
+			console.log(equipment); 
+
+			if(equipment !== null && equipments.indexOf(equipment) === -1){
+				console.log("Léquipement n'est pas dans la liste"); 
+				equipments.push(equipment);  
+			}
+		}
+	}
+
+	return equipments; 	
+}
+
 
 export default workout; 

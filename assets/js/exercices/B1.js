@@ -5,7 +5,7 @@ Si vous n'avez pas de barres parallèles, vous pouvez utiliser des chaises ou to
 (en descendant) et souffler dans l'extension (la montée).`
 
 const exercice = {
-	name: 'Dips full motion', 
+	name: '1/2 Dips', 
 	mainImg: 'B-main.jpg', 
 	secondaryImg: 'B-main.jpg', 
 	thumbnail: 'B-thumbnail.jpg', 

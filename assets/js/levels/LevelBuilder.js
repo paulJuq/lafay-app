@@ -1,9 +1,5 @@
-import A1 from '../exercices/A1'
-import A from '../exercices/A'
-import B from '../exercices/B'
-import C from '../exercices/C'
 
-export default class LevelTest {
+export default class LevelBuilder {
 
 	constructor(previousSessions, workout){
 
@@ -35,7 +31,7 @@ export default class LevelTest {
 
 				exercice.previousSessionScore = lastSession[i].sessionScore; 
 
-				exercice.sessionScore = lastSession[i].sessionScore + 1 ; 
+				exercice.sessionScore = lastSession[i].sessionScore ; 
 			}
 		}
 

@@ -5,13 +5,13 @@ Si vos chaises sont creuses au centre et qu'il est difficile de poser vos mains 
 
 
 const exercice = {
-	name: 'Pompes prise large', 
+	name: 'Pompes', 
 	mainImg: 'A1-main.jpg', 
 	secondaryImg: 'A1-main.jpg', 
 	thumbnail: 'A1-thumbnail.jpg', 
-	equipment: ['Chaises'], 
+	equipment: [], 
 	description: description, 
-	muscles: ['Pectoraux', 'Triceps', 'Epaules'], 
+	muscles: ['Milieu de la poitrine', 'Triceps'], 
 }
 
 export default exercice; 

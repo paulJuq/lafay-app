@@ -5,10 +5,10 @@ Il faut descendre en pliant les bras jusqu'à ce que la poitrine touche presque 
 
 const exercice = {
 	name: 'A', 
-	mainImg: 'A1-main.png', 
-	secondaryImg: 'A1-secondary.png', 
-	thumbnail: 'A1-thumbnail.png', 
-	equipment: null, 
+	mainImg: 'A1-main.jpg', 
+	secondaryImg: 'A1-main.jpg', 
+	thumbnail: 'A1-thumbnail.jpg', 
+	equipment: [null], 
 	description: description, 
 	muscles: ['Pectoraux', 'Triceps', 'Epaules'], 
 }

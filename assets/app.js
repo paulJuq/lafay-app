@@ -19,6 +19,8 @@ import Niveau1Programme1 from './js/levels/Niveau1Programme1'
 import Niveau1Programme2 from './js/levels/Niveau1Programme2'
 import Niveau2 from './js/levels/Niveau2'
 
+console.log(Niveau2); 
+
 class App extends React.Component {
 
 	render () {

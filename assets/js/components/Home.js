@@ -49,7 +49,7 @@ export default class Home extends React.Component{
 
 	renderWorkout(){
 
-		console.log('render')
+	
 		return(
 			<WorkoutManager />
 		)

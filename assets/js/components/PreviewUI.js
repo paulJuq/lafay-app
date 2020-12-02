@@ -13,7 +13,7 @@ const styles = {
 	resume: {
 		gridColumn: '1 / span 5',
 		color: '#423F55', 
-		padding: '0 2rem', 
+		padding: '0 1rem', 
 		liste: {
 			listStyleType: 'none', 
 			padding: '0', 
@@ -27,9 +27,21 @@ const styles = {
 			fontSize: '18px',
 			text: {
 				marginLeft: '1rem', 
+			}, 
+			thumbnail: {
+				width: '100px', 
+				borderRadius: '5px',
 			}
 		}
 	}, 
+
+	text:{
+		fontFamily: 'Rubik, sans-serif', 
+		color: '#1E1E1E', 
+		fontSize: '18px',
+		lineHeight: '128.7%', 
+		letterSpacing: '0.03em', 
+	},
 
 	buttonContainer: {
 		gridColumn: '1 / span 5',
@@ -65,15 +77,26 @@ export default class PreviewUI extends React.Component {
 		for(const i in exercices){
 			const exercice = exercices[i]
 
-			const thumbnail = require('../../img/resumelistplaceholder.png')
+			console.log('########'); 
+			console.log(exercice); 
+			console.log('########'); 
+
+			const thumbnail = require(`../../img/exercices/${exercice.movement.thumbnail}`)
 
 			liste.push(
 			<li key={i} style={styles.resume.listItem}>
-				<img src={thumbnail.default} alt="Rectangle blanc"/>
+				<img style={styles.resume.listItem.thumbnail} src={thumbnail.default} alt="Rectangle blanc"/>
 				<div style={styles.resume.listItem.text}>{`${exercice.movement.name} - ${exercice.instructions}`}</div>
 			</li>
 			)
 		}
+
+		const equipment = this.props.workout.workoutInfos.equipment.map((equipment, index) => 
+			<li key={index}>
+				{equipment}
+			</li>
+		);
+
 
 		return(
 			<React.Fragment>
@@ -81,6 +104,36 @@ export default class PreviewUI extends React.Component {
 				<div style={styles.totalTime}>
 					<h1>{this.props.workout.workoutInfos.title}</h1>
 					<h2>Prépare toi !</h2>
+				</div>
+
+				<div style={styles.resume}>
+					<h3>Informations & Exercices</h3>
+
+					<p style={styles.text}>{this.props.workout.workoutInfos.infos}</p>
+
+				</div>
+
+				<div style={styles.resume}>
+					<h3>Fréquence d'entraînement</h3>
+
+					<p style={styles.text}>{this.props.workout.workoutInfos.frequency}</p>
+
+				</div>
+
+				<div style={styles.resume}>
+					<h3>Objectifs de progression</h3>
+
+					<p style={styles.text}>{this.props.workout.workoutInfos.objectives}</p>
+
+				</div>
+
+				<div style={styles.resume}>
+					<h3>Matériel Nécessaire</h3>
+
+					<ul>
+						{equipment}
+					</ul>
+
 				</div>
 
 				<div style={styles.resume}>
@@ -103,3 +156,16 @@ export default class PreviewUI extends React.Component {
 		)
 	}
 }
+
+// class ExercicePreview extends React.Component {
+// 	render(){
+// 		return(
+// 			<div>
+// 				<div>
+// 					<icon></icon>
+// 				</div>
+// 				<h6>Exercice</h6>
+// 			</div>
+// 		)
+// 	}
+// }

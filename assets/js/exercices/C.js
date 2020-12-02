@@ -5,10 +5,10 @@ Ne tendez pas trop le cou en arrière afin de passer absolument le menton au-des
 
 const exercice = {
 	name: 'C', 
-	mainImg: 'C1-main.png', 
-	secondaryImg: 'C1-secondary.png', 
-	thumbnail: 'C1-thumbnail.png', 
-	equipment: 'Barre de tractions', 
+	mainImg: 'C1-main.jpg', 
+	secondaryImg: 'C1-main.jpg', 
+	thumbnail: 'C1-thumbnail.jpg', 
+	equipment: ['Barre de tractions'], 
 	description: description, 
 	muscles: ['Milieu du dos', 'Biceps'] 
 }

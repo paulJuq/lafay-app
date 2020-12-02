@@ -65,8 +65,8 @@ export default class WorkoutUI extends React.Component{
 
 				<img src={mainImg.default} style={styles.mainPicture}/>
 
-				<img src={secondaryImg.default} style={styles.secondaryPicture}/>
-
+{/*				<img src={secondaryImg.default} style={styles.secondaryPicture}/>
+*/}
 				<div style={styles.exerciceTitle}>
 					<div>{workout.movement.name}</div>
 					<div>{ `Round: ${workout.round} `}</div>

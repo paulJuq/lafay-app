@@ -43,6 +43,10 @@ const styles = {
 			text: {
 				marginLeft: '1rem', 
 			}, 
+			thumbnail: {
+				width: '80px', 
+				borderRadius: '5px',
+			},
 
 			score: {
 				display: 'flex', 
@@ -123,7 +127,7 @@ export default class ResumeUI extends React.Component{
 		}
 
 		const request = new XMLHttpRequest()
-		request.open("POST", "https://localhost:8000/api/workout_sessions");
+		request.open("POST", "http://lafay.paul-juquelier.fr/api/workout_sessions");
 		request.setRequestHeader("Content-Type", "application/json");
 		request.send(JSON.stringify(session));
 
@@ -140,6 +144,10 @@ export default class ResumeUI extends React.Component{
 		for(const i in this.props.workout.exercices){
 			const exercice = this.props.workout.exercices[i]
 
+			console.log('#####')
+			console.log(exercice)
+			console.log('#####')
+
 			let scoreDifference = exercice.sessionScore - exercice.previousSessionScore
 
 			if (scoreDifference >= 0) {
@@ -147,14 +155,14 @@ export default class ResumeUI extends React.Component{
 			}
 
 
-				const thumbnail = require(`../../img/resumelistplaceholder.png`)
+				const thumbnail = require(`../../img/exercices/${exercice.movement.thumbnail}`)
 
 			round.push(
 				
 
 				<li key={i}  style={styles.resume.listItem}>
 					<div style={styles.resume.listItem.score}>					
-						<img src={thumbnail.default} alt="thumbnail" />
+						<img style={styles.resume.listItem.thumbnail} src={thumbnail.default} alt="thumbnail" />
 						<div style={styles.resume.listItem.text}>{`${exercice.sessionScore}x ${exercice.movement.name}`}</div>
 					</div>
 					<div style={styles.resume.listItem.scoreDifference}>({scoreDifference})</div>
