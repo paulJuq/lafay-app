@@ -23,6 +23,7 @@ export default class LevelBuilder {
 		if(lastSessions.length > 0){
 
 			const lastIndex = lastSessions.length - 1; 
+			//On récupère la dernière session du niveau sélectionné
 			const lastSession = lastSessions[lastIndex].workout;
 
 			for(const i in this.workout.exercices){
@@ -31,7 +32,18 @@ export default class LevelBuilder {
 
 				exercice.previousSessionScore = lastSession[i].sessionScore; 
 
-				exercice.sessionScore = lastSession[i].sessionScore ; 
+				console.log(this.workout.workoutInfos.id); 
+
+				//affichage des reps dans WorkoutUI basé sur sessionScore. Application d'un traitement selon le niveau en cours
+				switch(Number(this.workout.workoutInfos.id)){
+					case 3 :
+						console.log("case 3");
+						exercice.sessionScore = lastSession[i].sessionScore + 1 ; 
+						break; 
+					default : 					
+						console.log("case default");
+						exercice.sessionScore = lastSession[i].sessionScore ; 
+				}
 			}
 		}
 

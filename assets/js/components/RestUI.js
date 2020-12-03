@@ -3,7 +3,6 @@ import React from 'react'
 const styles = {
 	repsCounter : {
 		gridColumn: '1 / span 5', 
-		background: 'white', 
 		color: '#423F55', 
 
 		title: {
@@ -31,7 +30,7 @@ const styles = {
 			},
 
 			totalReps: {
-				fontSize: '96px', 
+				fontSize: '72px', 
 				margin: '0 42px', 
 			},
 
@@ -40,10 +39,12 @@ const styles = {
 
 	timer:{
 		gridColumn: '1 / span 5', 
-		marginTop: '82px', 
+		padding: '1rem 20px 1rem 1rem', 
+		background: '#FFFFFF',
 		title: {
 			fontSize: '28px', 
-			textAlign: 'center', 	 
+			textAlign: 'center', 	
+			color: '#423F55', 
 
 		}, 
 		counter: {
@@ -54,8 +55,11 @@ const styles = {
 			marginTop: '24px', 
 
 			time : {
-				fontSize: '36px', 
+				fontSize: '96px', 
+				width: '100%',
 				margin: '0 36px', 
+				color: '#423F55',
+				textAlign: 'center',
 			},
 
 			controls: {
@@ -65,22 +69,27 @@ const styles = {
 			},	
 		}, 
 		skip: {
+			display: 'none',
 			width: '100%', 
 			textAlign: 'center', 
 			textDecoration: 'underline',
 			cursor: 'pointer',   
 			marginTop: '16px', 
+			color: '#423F55', 
 		}, 
 	},
 
-	nextExercice: {
+	next: {		
+		padding: '1.5rem 1rem',
+		background:'white',	
 		gridColumn : '1 / span 5', 
 		color: '#423F55', 
-		marginTop: '88px',
-		width: '95%', 
-		textAlign: 'right', 
-		marginRight: '32px',
-	},
+		nextExercice: {
+			textAlign: 'right', 
+			fontSize: '24px',
+			marginBottom:'12px',
+		},
+	}
 }
 
 export default class RestUI extends React.Component{
@@ -92,6 +101,11 @@ export default class RestUI extends React.Component{
 		return (
 			<React.Fragment>
 				
+				<RestTimer
+					functionNext = {this.props.functionNext}
+					restingTime = {workout.rest}
+				/>
+
 				<div style={styles.repsCounter} >
 					<div style={styles.repsCounter.title}>{workout.movement.name}</div>	
 					<div style={styles.repsCounter.subtitle}>Total répétitions</div>
@@ -102,13 +116,10 @@ export default class RestUI extends React.Component{
 					/>
 				</div>
 
-				<RestTimer
-					functionNext = {this.props.functionNext}
-					restingTime = {workout.rest}
-				/>
-
-				<div  style={styles.nextExercice}>Exercice suivant : {this.props.nextExercice} </div>
-
+				<div style={styles.next}>
+					<div style={styles.next.nextExercice}>Suivant : {this.props.nextExercice} </div>
+					<div style={styles.next.nextExercice}>{this.props.nextRound ? `Round ${this.props.nextRound}` : null}</div>
+				</div>
 
 			</React.Fragment>
 		)

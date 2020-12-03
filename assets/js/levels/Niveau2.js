@@ -508,26 +508,21 @@ const workout = {
 }
 
 workout.workoutInfos.equipment = getEquipment(workout.workoutInfos.exercicesList); 
-console.log(workout.workoutInfos.equipment);
 
 function getEquipment(exercicesSet){
 
-	console.log(exercicesSet); 
 
 	const equipments = []; 
 
 	for(const i in exercicesSet){
 
 		const exerice = exercicesSet[i]; 
-		console.log(exerice); 
 
 		for(const i in exerice.equipment){
 
 			const equipment = exerice.equipment[i];
-			console.log(equipment); 
 
 			if(equipment !== null && equipments.indexOf(equipment) === -1){
-				console.log("Léquipement n'est pas dans la liste"); 
 				equipments.push(equipment);  
 			}
 		}

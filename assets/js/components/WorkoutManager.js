@@ -45,6 +45,7 @@ export default class WorkoutManager extends React.Component{
 		this.incrementReps = this.incrementReps.bind(this)
 		this.decrementReps = this.decrementReps.bind(this)
 		this.guessNextExercice = this.guessNextExercice.bind(this)
+		this.guessNextRound = this.guessNextRound.bind(this)
 		this.updateWorkoutTime = this.updateWorkoutTime.bind(this)
 		this.startWorkout = this.startWorkout.bind(this)
 		this.nextExercice = this.nextExercice.bind(this)
@@ -127,6 +128,15 @@ export default class WorkoutManager extends React.Component{
 		}
 	}
 
+	guessNextRound(){
+		if(this.state.currentRound + 1 < Object.keys(this.props.workout.exercices).length ){
+			const round = this.state.currentRound + 1 ; 
+			return this.props.workout.exercices[round].round; 
+		}else{
+			return null; 
+		}
+	}
+
 	renderNavigation(){
 		if(this.state.currentState !== 'resume' && this.state.currentState !== 'preview') {
 			return (
@@ -170,13 +180,15 @@ export default class WorkoutManager extends React.Component{
 	renderRestUI(){
 
 		const workout = this.state.workout.exercices[this.state.currentRound]
-		const nextExercice = this.guessNextExercice()
+		const nextExercice = this.guessNextExercice(); 
+		const nextRound = this.guessNextRound();
 
 		if (this.state.currentState === 'rest'){
 			return (
 				<RestUI
 					workout={workout}
 					nextExercice={nextExercice}
+					nextRound={nextRound}
 					incrementReps = {this.incrementReps}
 					decrementReps = {this.decrementReps}
 					functionNext = {this.nextExercice}

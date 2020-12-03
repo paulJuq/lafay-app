@@ -66,9 +66,7 @@ const styles = {
 
 export default class PreviewUI extends React.Component {
 
-	componentDidMount(){
-		console.log("Le composant est monté")
-	}
+
 	render(){
 
 		let liste = []; 
@@ -77,9 +75,6 @@ export default class PreviewUI extends React.Component {
 		for(const i in exercices){
 			const exercice = exercices[i]
 
-			console.log('########'); 
-			console.log(exercice); 
-			console.log('########'); 
 
 			const thumbnail = require(`../../img/exercices/${exercice.movement.thumbnail}`)
 
