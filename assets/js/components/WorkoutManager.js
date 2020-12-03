@@ -52,7 +52,7 @@ export default class WorkoutManager extends React.Component{
 	}
 
 	componentDidMount(){
-		fetch("http://lafay.paul-juquelier.fr/api/users/1")
+		fetch("https://127.0.0.1:8000/api/users/1")
 		.then(res => res.json())
 		.then(
 			(result) => {

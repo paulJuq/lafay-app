@@ -4,8 +4,21 @@ const styles = {
 
 	exerciceTitle : {
 		color: 'white', 
-		gridColumn: '4 / span 2',
-		marginTop: '1rem', 
+		gridColumn: '1 / span 5',
+		display: 'flex',
+		alignItems: 'center', 
+		justifyContent: 'space-between',
+
+		exerciceName: {
+			fontSize: '32px',
+			padding: '16px 16px 16px 32px',
+			color: '#423F55',
+		},
+		round: {
+			fontSize: '24px',
+			textAlign: 'center',
+			padding: '16px',
+		},
 	}, 
 
 	nbReps: {
@@ -33,7 +46,7 @@ const styles = {
 
 	previousMaxReps: {
 		color: '#423F55', 
-		fontSize: '18px',
+		fontSize: '64px',
 		gridColumn: '1 / span 5', 
 		justifySelf: 'center',  
 		marginTop: '12px', 
@@ -41,13 +54,14 @@ const styles = {
 
 	btnNext : {
 		background : '#423F55', 
-		fontSize: '18px', 
+		fontSize: '24px', 
 		gridColumn: '2 / span 3', 
-		justifySelf: 'center', 
-		padding: '8px 16px', 
+		width: '100%',
+		padding: '0.8rem 0', 
 		textTransform: 'uppercase', 
 		marginTop: '3rem', 
 		cursor: 'pointer', 
+		textAlign: 'center',
 
 	},
 
@@ -68,13 +82,13 @@ export default class WorkoutUI extends React.Component{
 {/*				<img src={secondaryImg.default} style={styles.secondaryPicture}/>
 */}
 				<div style={styles.exerciceTitle}>
-					<div>{workout.movement.name}</div>
-					<div>{ `Round: ${workout.round} `}</div>
+					<div style={styles.exerciceTitle.exerciceName}>{workout.movement.name.toUpperCase()}</div>
+					<div style={styles.exerciceTitle.round}>Round <br/> {workout.round} </div>
 				</div>
 
 				<div style={styles.nbReps}>{workout.instructions}</div>
 
-				<div style={styles.previousMaxReps}>{`Score à battre : ${workout.sessionScore}`}</div>
+				<div style={styles.previousMaxReps}>{`x${workout.sessionScore}`}</div>
 
 
 				<ButtonNext click={this.props.setRestState}/>

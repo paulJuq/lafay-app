@@ -127,7 +127,7 @@ export default class ResumeUI extends React.Component{
 		}
 
 		const request = new XMLHttpRequest()
-		request.open("POST", "http://lafay.paul-juquelier.fr/api/workout_sessions");
+		request.open("POST", "https://127.0.0.1:8000/api/workout_sessions");
 		request.setRequestHeader("Content-Type", "application/json");
 		request.send(JSON.stringify(session));
 
