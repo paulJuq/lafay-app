@@ -1,5 +1,8 @@
 import React from 'react'
 
+const bip1 = new Audio('../sounds/censor-beep-01.mp3');
+const bip2 = new Audio('../sounds/censor-beep-3.mp3');
+
 const styles = {
 	repsCounter : {
 		gridColumn: '1 / span 5', 
@@ -170,6 +173,11 @@ class RestTimer extends React.Component{
 			const restTime = this.state.restTime; 
 
 			if(restTime > 0){
+				if (restTime === 4 || restTime === 3 || restTime === 2) {
+					bip1.play();
+				}else if(restTime === 1){
+					bip2.play();
+				}
 				this.setState((state) => ({restTime : state.restTime -1 }))
 			}else{
 				window.clearInterval(this.interval)
